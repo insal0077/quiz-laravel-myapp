@@ -1,0 +1,162 @@
+====================================================================
+   ការតេស្ត API ទាំង ៥ Methods ក្នុង Postman (បញ្ចូល បង្ហាញ កែប្រែ និងលុប)
+   Base URL: http://127.0.0.1:8000
+   * ក្នុងតារាងនីមួយៗមានទិន្នន័យស្រាប់ចំនួន ៦ ជួរ (ID: 1, 2, 3, 4, 5, 6)
+   * នៅពេលចុច POST បញ្ចូលថ្មី វានឹងបង្កើត ID = 7
+====================================================================
+ចំណាំ៖ នៅក្នុង Postman ពេលប្រើ POST ឬ PUT សូមជ្រើសរើស៖
+Body -> raw -> JSON
+
+--------------------------------------------------------------------
+ផ្នែកទី ១៖ Table tblBookType (ប្រភេទសៀវភៅ - មាន ID 1 ដល់ 6 ស្រាប់)
+--------------------------------------------------------------------
+
+1. បង្ហាញទិន្នន័យទាំងអស់ (GET All)
+Method: GET
+URL:    http://127.0.0.1:8000/api/book-types
+
+2. បង្ហាញទិន្នន័យតាម ID (GET One - អាចដាក់លេខ 1 ដល់ 6)
+Method: GET
+URL:    http://127.0.0.1:8000/api/book-types/1
+
+3. បញ្ចូលទិន្នន័យថ្មី (POST -> នឹងបង្កើតបាន BookTypeID = 7)
+Method: POST
+URL:    http://127.0.0.1:8000/api/book-types
+Body (JSON):
+{
+  "BookTypeName": "Cloud Computing"
+}
+
+4. កែប្រែទិន្នន័យ (PUT)
+Method: PUT
+URL:    http://127.0.0.1:8000/api/book-types/6
+Body (JSON):
+{
+  "BookTypeName": "AI & Data Science"
+}
+
+5. លុបទិន្នន័យ (DELETE - លុប ID = 7 ដែលទើបបង្កើត ឬលុប ID = 6)
+Method: DELETE
+URL:    http://127.0.0.1:8000/api/book-types/7
+
+
+--------------------------------------------------------------------
+ផ្នែកទី ២៖ Table tblAuthor (អ្នកនិពន្ធ - មាន ID 1 ដល់ 6 ស្រាប់)
+--------------------------------------------------------------------
+
+1. បង្ហាញទិន្នន័យទាំងអស់ (GET All)
+Method: GET
+URL:    http://127.0.0.1:8000/api/authors
+
+2. បង្ហាញទិន្នន័យតាម ID (GET One - អាចដាក់លេខ 1 ដល់ 6)
+Method: GET
+URL:    http://127.0.0.1:8000/api/authors/1
+
+3. បញ្ចូលទិន្នន័យថ្មី (POST -> នឹងបង្កើតបាន AuthorID = 7)
+Method: POST
+URL:    http://127.0.0.1:8000/api/authors
+Body (JSON):
+{
+  "AuthorName": "Heng Vicheka",
+  "Gender": "Female",
+  "DOB": "1999-12-05",
+  "POB": "Kompong Cham",
+  "Address": "Phnom Penh, Cambodia",
+  "Phone": "012777888",
+  "Email": "vicheka@example.com",
+  "Photo": "vicheka.jpg"
+}
+
+4. កែប្រែទិន្នន័យ (PUT)
+Method: PUT
+URL:    http://127.0.0.1:8000/api/authors/6
+Body (JSON):
+{
+  "AuthorName": "Meas Rithy (Updated)",
+  "Phone": "099888777",
+  "Address": "Phnom Penh, Cambodia"
+}
+
+5. លុបទិន្នន័យ (DELETE - លុប ID = 7 ដែលទើបបង្កើត)
+Method: DELETE
+URL:    http://127.0.0.1:8000/api/authors/7
+
+
+--------------------------------------------------------------------
+ផ្នែកទី ៣៖ Table tblBook (សៀវភៅ - មាន ID 1 ដល់ 6 ស្រាប់)
+--------------------------------------------------------------------
+
+1. បង្ហាញទិន្នន័យទាំងអស់ (GET All)
+Method: GET
+URL:    http://127.0.0.1:8000/api/books
+
+2. បង្ហាញទិន្នន័យតាម ID (GET One - អាចដាក់លេខ 1 ដល់ 6)
+Method: GET
+URL:    http://127.0.0.1:8000/api/books/1
+
+3. បញ្ចូលទិន្នន័យថ្មី (POST -> នឹងបង្កើតបាន BookID = 7)
+Method: POST
+URL:    http://127.0.0.1:8000/api/books
+Body (JSON):
+{
+  "BookTitle": "React Native Mobile Development",
+  "BookTypeID": 4,
+  "PublishDate": "2026-07-15",
+  "NumOfPages": 340,
+  "NumOfCopies": 25,
+  "Edition": "1st Edition",
+  "Publisher": "CamTech Press",
+  "BookSource": "University Library",
+  "Remark": "New Book"
+}
+
+4. កែប្រែទិន្នន័យ (PUT)
+Method: PUT
+URL:    http://127.0.0.1:8000/api/books/6
+Body (JSON):
+{
+  "BookTitle": "Machine Learning & Deep Learning",
+  "NumOfCopies": 50,
+  "Remark": "Updated Stock"
+}
+
+5. លុបទិន្នន័យ (DELETE - លុប ID = 7 ដែលទើបបង្កើត)
+Method: DELETE
+URL:    http://127.0.0.1:8000/api/books/7
+
+
+--------------------------------------------------------------------
+ផ្នែកទី ៤៖ Table tblBookAuthor (សៀវភៅ និងអ្នកនិពន្ធ - មាន 1/1 ដល់ 6/6 ស្រាប់)
+--------------------------------------------------------------------
+
+1. បង្ហាញទិន្នន័យទាំងអស់ (GET All)
+Method: GET
+URL:    http://127.0.0.1:8000/api/book-authors
+
+2. បង្ហាញទិន្នន័យតាម ID (GET One: {BookID}/{AuthorID} - 1/1 ដល់ 6/6)
+Method: GET
+URL:    http://127.0.0.1:8000/api/book-authors/1/1
+
+3. បញ្ចូលទិន្នន័យថ្មី (POST -> ភ្ជាប់ BookID: 1 ជាមួយ AuthorID: 2)
+Method: POST
+URL:    http://127.0.0.1:8000/api/book-authors
+Body (JSON):
+{
+  "BookID": 1,
+  "AuthorID": 2,
+  "AuthorDate": "2026-08-01",
+  "Remark": "Co-Author"
+}
+
+4. កែប្រែទិន្នន័យ (PUT: {BookID}/{AuthorID})
+Method: PUT
+URL:    http://127.0.0.1:8000/api/book-authors/1/2
+Body (JSON):
+{
+  "AuthorDate": "2026-09-01",
+  "Remark": "Second Author (Updated)"
+}
+
+5. លុបទិន្នន័យ (DELETE: {BookID}/{AuthorID})
+Method: DELETE
+URL:    http://127.0.0.1:8000/api/book-authors/1/2
